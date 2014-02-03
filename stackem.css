@@ -1,0 +1,24 @@
+.stackem--wrapper {
+	position: relative;
+}
+
+
+[data-stackem-columns='5'] .stackem--item {
+	float: left;
+	width: 20%;
+}
+
+[data-stackem-columns='4'] .stackem--item {
+	float: left;
+	width: 25%;
+}
+
+[data-stackem-columns='3'] .stackem--item {
+	float: left;
+	width: 33.333%;
+}
+
+[data-stackem-columns='2'] .stackem--item {
+	float: left;
+	width: 50%;
+}

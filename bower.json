@@ -1,0 +1,24 @@
+{
+  "name": "stackem",
+  "main": "stackem.js",
+  "version": "0.1.0",
+  "authors": [
+    "Dan Bissonnet <dan@danisadesigner.com>"
+  ],
+  "description": "Simple stacking layouts",
+  "keywords": [
+    "stacked",
+    "layout",
+    "positioning"
+  ],
+  "license": "GPL2",
+  "homepage": "http://github.com/dbisso/stackem",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
