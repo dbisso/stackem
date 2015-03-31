@@ -124,14 +124,19 @@
 			itemBottoms: [] // Array of bottom position of each item
 		};
 
-		wrapper.attr('data-stackem-columns', grid.columns);
+		// One columns doesn't need stacking so
+		// remove and stop;
+		if ( grid.columns === 1 ) {
+			self.remove();
+			return grid;
+		}
 
+		wrapper.attr('data-stackem-columns', grid.columns);
 
 		grid.items.each(function(i, el) {
 			if ( options.fixHeights ) {
 				fixHeight( el );
 			}
-
 			stackItem( i, el, grid );
 			$(el).addClass('stackem--item-is-done');
 		} ).css({
