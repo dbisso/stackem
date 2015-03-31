@@ -185,10 +185,8 @@
 		this.grid = {};
 	}
 
-	StackEm.prototype.init = init;
+	StackEm.prototype.init = initStack;
 	StackEm.prototype.remove = removeStack;
-	StackEm.prototype.bindResize = bindResize;
-	StackEm.prototype.initStack = initStack;
 
 	/**
 	 * @namespace Expose the public API
