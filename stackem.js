@@ -39,9 +39,14 @@
 
 		// Ignore the first row
 		if ( i > grid.columns - 1 ) {
-			top = _.min(grid.itemBottoms);
-			// Which item are we underneath?
-			foundIndex = _.indexOf(grid.itemBottoms, top);
+			if ( grid.keepOrder ) {
+				foundIndex = i % grid.columns;
+				top = grid.itemBottoms[foundIndex];
+			} else {
+				top = _.min(grid.itemBottoms);
+				// Which item are we underneath?
+				foundIndex = _.indexOf(grid.itemBottoms, top);
+			}
 
 			// We need to indicate that the item at foundIndex is
 			// no longer in contention for min() so set it to a
@@ -110,6 +115,7 @@
 			columns: options.columns || wrapper.data('stackem-columns') || 3,
 			items: wrapper.find(options.itemSelector), // The items
 			resize: options.resize || true, // Automatically reload grid on resize
+			keepOrder: options.keepOrder || false,
 			wrapper: wrapper, // Wrapper element
 			itemColumns: {}, // Hash of item_index : column_index
 			itemBottoms: [] // Array of bottom position of each item
