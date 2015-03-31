@@ -9,7 +9,9 @@
  * @example
  * var stack = new DBisso.Stackem({
  *  wrapperSelector: '.wrapper',
- *  itemSelector: '.list-item'
+ *  itemSelector: '.list-item',
+ *  columns: 4 // Optional. Default: 3. Can be a function which returns an integer
+ *  keepOrder: true // Optional. Default: false. Should the natural column order be maintained/
  * });
  *
  * stack.init(); // Build the stack.
