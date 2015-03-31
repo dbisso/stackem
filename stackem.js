@@ -34,6 +34,7 @@
 			position = item.position(),
 			top = Math.floor(position.top),
 			left = Math.floor( position.left ),
+			verticalGutter = 0,
 			foundIndex,
 			column;
 
@@ -73,7 +74,9 @@
 			grid.itemColumns[i] = i;
 		}
 
-		grid.itemBottoms.push( top + item.outerHeight(false) );
+		verticalGutter = Math.ceil( Number( item.css('marginBottom').replace( /px/, '' ) ) );
+
+		grid.itemBottoms.push( top + item.outerHeight(false) + verticalGutter );
 
 		item.css({
 			'left': left,
