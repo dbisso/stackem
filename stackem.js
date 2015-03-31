@@ -138,18 +138,21 @@
 		return grid;
 	};
 
-	var init = function() {
-		this.bindResize();
-		this.initStack();
-	}
-
-	var bindResize = function bindResize() {
+	/**
+	 * Re-init on window resize
+	 */
+	var bindResize = function() {
 		var self = this;
+		$(window).resize( _.debounce( function(){
+			// iOS6 triggers a resize when the <HTML> element is resized
+			// do a quick check in case it has been hidden for some reason
+			var rootHeight = document.getElementsByTagName('html')[0].scrollHeight;
 
-		$(window).resize( _.throttle( function(){
-			self.remove();
-			self.initStack();
-		}, 500 ) );
+			if ( rootHeight > 0 ) {
+				self.remove();
+				self.init();
+			}
+		}, 500) );
 	};
 
 	/**
@@ -180,6 +183,8 @@
 		if ( ! ( this instanceof StackEm ) ) {
 			return new StackEm( options );
 		}
+
+		bindResize.call(this);
 
 		this.options = options;
 		this.grid = {};
