@@ -115,11 +115,6 @@
 			itemBottoms: [] // Array of bottom position of each item
 		};
 
-		var initEvent = new Event('initStack');
-		initEvent.grid = grid;
-		wrapper.get()[0].dispatchEvent(initEvent);
-
-
 		wrapper.attr('data-stackem-columns', grid.columns);
 
 
@@ -164,6 +159,11 @@
 	 */
 	var removeStack = function(customGrid) {
 		var grid = customGrid || this.grid;
+
+		// var event = new Event('remove');
+		// event.grid = grid;
+
+		// grid.wrapper.get()[0].dispatchEvent(event);
 
 		grid.itemBottoms = [];
 		grid.wrapper.css('height', '');
