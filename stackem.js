@@ -104,21 +104,7 @@
 		var self = this,
 			options = self.options,
 			wrapper = $( options.wrapperSelector ).addClass('stackem--init'),
-			lastRow,
-			grids = [];
-
-		// If our wrapper is not unique we need to create new stacks
-		// for each one that matches the selector.
-		if ( wrapper.length > 1 ) {
-			wrapper.each( function( i, wrapperElement ) {
-				var newOptions = JSON.parse(JSON.stringify(options));
-				newOptions.wrapperSelector = wrapperElement;
-				var stack = new StackEm( newOptions );
-				grids.push( stack.init() );
-			});
-
-			return grids;
-		}
+			lastRow;
 
 		var grid = self.grid = {
 			columns: options.columns || wrapper.data('stackem-columns') || 3,
