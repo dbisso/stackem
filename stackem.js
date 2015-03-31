@@ -171,6 +171,7 @@
 		grid.items.attr('style', '');
 		grid.itemBottoms = [];
 		grid.wrapper.css('height', '');
+		grid.wrapper.attr('data-stackem-columns', null);
 		grid = {};
 	};
 
