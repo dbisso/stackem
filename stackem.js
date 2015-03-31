@@ -115,7 +115,7 @@
 			lastRow;
 
 		var grid = self.grid = {
-			columns: options.columns || wrapper.data('stackem-columns') || 3,
+			columns: _.result( options, 'columns', wrapper.data('stackem-columns') || 3 ),
 			items: wrapper.find(options.itemSelector), // The items
 			resize: options.resize || true, // Automatically reload grid on resize
 			keepOrder: options.keepOrder || false,
