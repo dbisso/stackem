@@ -54,7 +54,13 @@
 			grid.itemColumns[i] = column;
 
 			// Use the same left position based on the first row
-			left = ( grid.items.eq(column).position().left / grid.wrapper.width() * 100 ) + '%';
+			left = ( Number(grid.items.eq(column).css('left').replace(/px/,'')) / grid.wrapper.width() * 100 );
+
+			if ( isNaN( left ) ) {
+				left = grid.items.eq(column)[0].style.left;
+			} else {
+				left += '%';
+			}
 		} else {
 			// First row of items are layed out equally accross the whole width
 			top = 0;
