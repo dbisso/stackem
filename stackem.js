@@ -165,6 +165,7 @@
 
 		// grid.wrapper.get()[0].dispatchEvent(event);
 
+		grid.items.attr('style', '');
 		grid.itemBottoms = [];
 		grid.wrapper.css('height', '');
 		grid = {};
